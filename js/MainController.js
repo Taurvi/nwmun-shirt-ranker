@@ -1,80 +1,88 @@
 'use strict';
 angular.module('ngApp')
     .controller('MainController', ['$scope', 'ShirtClass', function ($scope, ShirtClass) {
-        var rawShirtList = [
-            {
-                color: 'Aquatic Blue',
-                image: 'aquatic_blue'
-            },
-            {
-                color: 'Athletic Maroon',
-                image: 'athletic_maroon'
-            },
-            {
-                color: 'Cardinal',
-                image: 'cardinal'
-            },
-            {
-                color: 'Charcoal',
-                image: 'charcoal'
-            },
-            {
-                color: 'Colonial Blue',
-                image: 'colonial_blue'
-            },
-            {
-                color: 'Dark Heather Gray',
-                image: 'dark_heather_gray'
-            },
-            {
-                color: 'Gold',
-                image: 'gold'
-            },
-            {
-                color: 'Jade Green',
-                image: 'jade_green'
-            },
-            {
-                color: 'Olive',
-                image: 'olive'
-            },
-            {
-                color: 'Orange Sherbet',
-                image: 'orange_sherbet'
-            },
-            {
-                color: 'Pale Pink',
-                image: 'pale_pink'
-            },
-            {
-                color: 'Pistachio',
-                image: 'pistachio'
-            },
-            {
-                color: 'Rich Red',
-                image: 'rich_red'
-            },
-            {
-                color: 'Steel Blue',
-                image: 'steel_blue'
-            },
-            {
-                color: 'Stonewashed Blue',
-                image: 'stonewashed_blue'
-            },
-            {
-                color: 'Stonewashed Green',
-                image: 'stonewashed_green'
-            },
-            {
-                color: 'Teal',
-                image: 'teal'
-            },
-            {
-                color: 'Ultramarine Blue',
-                image: 'ultramarine_blue'
-            },
-        ];
+var rawShirtList = [
+    {
+        color: 'Aquatic Blue',
+        image: 'aquatic_blue'
+    },
+    {
+        color: 'Athletic Maroon',
+        image: 'athletic_maroon'
+    },
+    {
+        color: 'Cardinal',
+        image: 'cardinal'
+    },
+    {
+        color: 'Charcoal',
+        image: 'charcoal'
+    },
+    {
+        color: 'Colonial Blue',
+        image: 'colonial_blue'
+    },
+    {
+        color: 'Dark Heather Gray',
+        image: 'dark_heather_gray'
+    },
+    {
+        color: 'Gold',
+        image: 'gold'
+    },
+    {
+        color: 'Jade Green',
+        image: 'jade_green'
+    },
+    {
+        color: 'Olive',
+        image: 'olive'
+    },
+    {
+        color: 'Orange Sherbet',
+        image: 'orange_sherbet'
+    },
+    {
+        color: 'Pale Pink',
+        image: 'pale_pink'
+    },
+    {
+        color: 'Pistachio',
+        image: 'pistachio'
+    },
+    {
+        color: 'Rich Red',
+        image: 'rich_red'
+    },
+    {
+        color: 'Sapphire',
+        image: 'sapphire'
+    },
+    {
+        color: 'Steel Blue',
+        image: 'steel_blue'
+    },
+    {
+        color: 'Stonewashed Blue',
+        image: 'stonewashed_blue'
+    },
+    {
+        color: 'Stonewashed Green',
+        image: 'stonewashed_green'
+    },
+    {
+        color: 'Teal',
+        image: 'teal'
+    },
+    {
+        color: 'Turquoise',
+        image: 'turqouise'
+    },
+    {
+        color: 'Ultramarine Blue',
+        image: 'ultramarine_blue'
+    },
+];
         $scope.parsedShirts = {};
         $scope.loadedShirts = false;
         $scope.loadedThankYou = false;
