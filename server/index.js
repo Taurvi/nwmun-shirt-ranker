@@ -49,6 +49,7 @@ io.sockets.on('connection', function (socket) {
 
     socket.on('submitShirts', function (shirtsObj) {
         rawShirts.push().set(shirtsObj);
+        socket.emit('submitSuccess');
     });
 
     // Log when user disconnects

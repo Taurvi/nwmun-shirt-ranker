@@ -78,6 +78,8 @@ angular.module('ngApp')
         $scope.parsedShirts = {};
         $scope.loadedShirts = false;
         $scope.loadedThankYou = false;
+        $scope.submitting = false;
+        $scope.submitted = false;
 
         $scope.hoveringOver = function(value) {
             $scope.overStar = value;
@@ -96,6 +98,7 @@ angular.module('ngApp')
         };
 
         $scope.submit = function() {
+            $scope.submitting = true;
             var keys = Object.keys($scope.parsedShirts);
             var finalObj = {};
             var user = '';
@@ -107,5 +110,10 @@ angular.module('ngApp')
             finalObj.user = user;
             socket.emit('submitShirts', finalObj);
         };
+
+        socket.on('submitSuccess', function() {
+            $scope.submitting = false;
+            $scope.submitted = true;
+        });
 
     }]);
