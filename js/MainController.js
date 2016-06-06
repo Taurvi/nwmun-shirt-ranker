@@ -80,7 +80,7 @@ var rawShirtList = [
     },
     {
         color: 'Turquoise',
-        image: 'Turquoise'
+        image: 'turquoise'
     },
     {
         color: 'Ultramarine Blue',
