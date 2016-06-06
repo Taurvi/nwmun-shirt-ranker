@@ -1,0 +1,24 @@
+{
+  "name": "nwmun-shirt-server",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Taurvi/nwmun-shirt-ranker.git"
+  },
+  "author": "Stephen \"Taurvi\" Rimbakusumo",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Taurvi/nwmun-shirt-ranker/issues"
+  },
+  "homepage": "https://github.com/Taurvi/nwmun-shirt-ranker#readme",
+  "dependencies": {
+    "express": "^4.13.4",
+    "firebase": "^3.0.3",
+    "socket.io": "^1.4.6"
+  }
+}

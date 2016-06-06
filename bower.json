@@ -1,0 +1,29 @@
+{
+  "name": "nwmun-shirt-ranker",
+  "homepage": "https://github.com/Taurvi/nwmun-shirt-ranker",
+  "authors": [
+    "Stephen Rimbakusumo <srimbakusumo@gmail.com>"
+  ],
+  "description": "",
+  "main": "",
+  "license": "MIT",
+  "private": true,
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "angular": "^1.5.6",
+    "bootstrap": "^3.3.6",
+    "components-font-awesome": "^4.6.3",
+    "angular-input-stars-directive": "angular-input-stars#^1.5.5",
+    "angular-bootstrap": "^1.3.3",
+    "angular-socket-io": "^0.7.0"
+  },
+  "resolutions": {
+    "angular": "^1.5.6"
+  }
+}

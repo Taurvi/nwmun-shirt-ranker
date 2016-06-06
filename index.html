@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="vangulariewport" content="width=device-width, initial-scale=1">
+    <title>NWMUN Shirt Ranker</title>
+    <link href="bower_components/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="bower_components/bootstrap/dist/css/bootstrap-theme.min.css" rel="stylesheet">
+    <link href="bower_components/components-font-awesome/css/font-awesome.min.css" rel="stylesheet">
+    <link href="css/main.css" rel="stylesheet">
+</head>
+<body ng-app="ngApp" ng-controller="MainController">
+<header class="text-center">
+    <img class="img-responsive center-block" src="img/logo.png">
+</header>
+<div class="row" ng-if="!loadedShirts">
+    <div class="col-sm-6 center-block">
+        <div class="input-group input-group-lg">
+            <input type="text" ng-model="username" class="form-control" placeholder="What is your name?">
+      <span class="input-group-btn">
+        <button class="btn btn-default" type="button" ng-click="initialize(username)">Submit</button>
+      </span>
+        </div><!-- /input-group -->
+    </div><!-- /.col-lg-6 -->
+</div>
+<div ng-if="loadedShirts">
+    <div class="row">
+        <div class="col-sm-12 text-center">
+            <h4>
+                Please rank the following shirt colors from 1-5 stars, where 5 stars is the best.</h4>
+        </div>
+    </div>
+    <hr>
+    <div class="row">
+        <div class="col-sm-4 text-center" ng-repeat="shirtObj in parsedShirts">
+            <h3 ng-class="{'text-success': shirtObj.rating != -1}">
+                <uib-rating ng-model="shirtObj.rating" max="5" on-hover="hoveringOver(value)" on-leave="overStar = null" titles="['1','2','3','4','5']" aria-labelledby="default-rating"></uib-rating>
+            </h3>
+            <img class="shirt img-thumbnail img-responsive" ng-src="img/shirts/{{shirtObj.image}}.jpg">
+            <hr>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-sm-6 center-block">
+            <button class="btn btn-info btn-lg btn-block" ng-click="submit()">Submit Ratings</button>
+        </div>
+    </div>
+</div>
+
+<script src="bower_components/jquery/dist/jquery.min.js"></script>
+<script src="bower_components/angular/angular.min.js"></script>
+<script src="bower_components/angular-bootstrap/ui-bootstrap-tpls.min.js"></script>
+<script src="bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
+<script src="js/socket.io.js"></script>
+<script src="bower_components/angular-socket-io/socket.min.js"></script>
+<script src="js/app.js"></script>
+<script src="js/ShirtClass.js"></script>
+<script src="js/MainController.js"></script>
+</body>
+</html>

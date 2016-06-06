@@ -1,0 +1,15 @@
+.center-block {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    float: none;
+}
+
+header {
+    margin-top: 1%;
+    margin-bottom: 1%;
+}
+
+.shirt {
+    height: 364px;
+}
