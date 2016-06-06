@@ -55,6 +55,10 @@ var rawShirtList = [
         image: 'rich_red'
     },
     {
+        color: 'Royal',
+        image: 'royal'
+    },
+    {
         color: 'Sapphire',
         image: 'sapphire'
     },
@@ -76,7 +80,7 @@ var rawShirtList = [
     },
     {
         color: 'Turquoise',
-        image: 'turqouise'
+        image: 'Turquoise'
     },
     {
         color: 'Ultramarine Blue',
