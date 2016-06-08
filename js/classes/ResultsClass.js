@@ -12,7 +12,8 @@ angular.module('ngApp')
                 var userResult = rawData[name];
                 colorKeys.map(function(color) {
                     if (!parsedColors.hasOwnProperty(color)) {
-                        parsedColors[color] = [color];
+                        parsedColors[color] = [];
+                        //parsedColors[color] = [color];
                     }
                     parsedColors[color].push(userResult[color]);
                 });
