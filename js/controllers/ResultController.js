@@ -1,6 +1,6 @@
 'use strict';
 angular.module('ngApp')
-    .controller('ResultController', ['$scope', 'ResultsClass', 'RatingClass', function ($scope, ResultsClass) {
+    .controller('ResultController', ['$scope', 'ResultsClass', 'RatingClass', function ($scope, ResultsClass, RatingClass) {
         $scope.getData = function() {
             socket.emit('getData');
             $('#button').hide();
