@@ -22,6 +22,7 @@ angular.module('ngApp')
                     ranking += parseInt(rank);
                 }
 
+                ranking /= 5;
                 graphData.push([color, ranking]);
             }
 
@@ -50,7 +51,8 @@ angular.module('ngApp')
             var options = {
                 title: 'T-Shirt Rankings',
                 height: 600,
-                legend: {position: 'none'}
+                legend: {position: 'none'},
+                vAxis: {format:'#'}
             };
             // Instantiate and draw our chart, passing in some options.
             var chart = new google.visualization.ColumnChart(document.getElementById('chart_div'));
