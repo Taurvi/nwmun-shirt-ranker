@@ -4,6 +4,16 @@
         <button id="button" class="btn btn-default btn-lg" ng-click="getData()">Get Data</button>
 
         <div id="chart_div"></div>
+        <div class="row">
+            <div class="col-sm-4 text-center" ng-repeat="rating in tableData">
+                <h3>
+                    {{rating.color}}
+                    <uib-rating ng-model="rating.rating" read-only="true" max="5" titles="['1','2','3','4','5']" aria-labelledby="default-rating"></uib-rating>
+                </h3>
+                <img class="shirt img-thumbnail img-responsive" ng-src="img/shirts/{{rating.image}}.jpg">
+                <hr>
+            </div>
+        </div>
         <!--<div id="grid1" ui-grid="{ data: myData }" class="grid"></div>-->
     </div>
 </div>

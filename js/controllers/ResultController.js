@@ -1,6 +1,6 @@
 'use strict';
 angular.module('ngApp')
-    .controller('ResultController', ['$scope', 'ResultsClass', function ($scope, ResultsClass) {
+    .controller('ResultController', ['$scope', 'ResultsClass', 'RatingClass', function ($scope, ResultsClass) {
         $scope.getData = function() {
             socket.emit('getData');
             $('#button').hide();
@@ -8,7 +8,9 @@ angular.module('ngApp')
 
         $scope.rawResults = null;
         $scope.results = null;
+        $scope.tableData = {};
         var graphData = [];
+        var table = $('#table').get(0);
 
         socket.on('returnData', function(data) {
             var jsonData = JSON.parse(data);
@@ -24,6 +26,7 @@ angular.module('ngApp')
                 }
 
                 ranking /= 5;
+                $scope.tableData[color] = new RatingClass(color, (color.toLowerCase()).replace(/\s/g,"_"), ranking);
                 graphData.push([color, ranking]);
             }
 
