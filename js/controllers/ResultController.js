@@ -3,6 +3,7 @@ angular.module('ngApp')
     .controller('ResultController', ['$scope', 'ResultsClass', function ($scope, ResultsClass) {
         $scope.getData = function() {
             socket.emit('getData');
+            $('#button').hide();
         };
 
         $scope.rawResults = null;
