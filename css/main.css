@@ -13,3 +13,11 @@ header {
 .shirt {
     height: 364px;
 }
+
+table {
+    text-align: center;
+}
+
+table img {
+    height: 250px;
+}

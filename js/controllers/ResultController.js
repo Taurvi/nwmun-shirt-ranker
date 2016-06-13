@@ -18,6 +18,8 @@ angular.module('ngApp')
             $scope.results = new ResultsClass(jsonData);
             $scope.$apply();
 
+            var row = table.insertRow(-1);
+            var x = 0;
             for (var color in $scope.results.colors) {
                 var ranking = 0;
                 for (var i = 0; i < $scope.results.colors[color].length; i++) {
@@ -28,6 +30,22 @@ angular.module('ngApp')
                 ranking /= 5;
                 $scope.tableData[color] = new RatingClass(color, (color.toLowerCase()).replace(/\s/g,"_"), ranking);
                 graphData.push([color, ranking]);
+
+                if (x == 2) {
+                    var cell1 = row.insertCell(2);
+                    row = table.insertRow(-1);
+                } else if (x==1) {
+                    var cell1 = row.insertCell(1);
+                } else if (x==0) {
+                    var cell1 = row.insertCell(0);
+                }
+
+                cell1.innerHTML = color + " <b>" + ranking + "</b><br><img src='img/shirts/" + (color.toLowerCase()).replace(/\s/g,"_") + ".jpg'><br><br>";
+                if (x == 2) {
+                    x = 0;
+                } else {
+                    x++;
+                }
             }
 
             graphData.sort(function(a, b) {return a[1] - b[1]});

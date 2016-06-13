@@ -4,7 +4,7 @@ angular.module('ngApp')
         var RatingClass = function RatingClass(color, image, rating) {
             this._color = color;
             this._image = image;
-            this._rating = -1;
+            this._rating = rating;
 
             Object.defineProperties(this, {
                 'color': {
