@@ -1,6 +1,6 @@
 'use strict';
 angular.module('ngApp')
-    .controller('ResultController', ['$scope', 'ResultsClass', 'RatingClass', function ($scope, ResultsClass, RatingClass) {
+    .controller('ResultController', ['$scope', 'ResultsClass', function ($scope, ResultsClass) {
         $scope.getData = function() {
             socket.emit('getData');
             $('#button').hide();
@@ -8,7 +8,6 @@ angular.module('ngApp')
 
         $scope.rawResults = null;
         $scope.results = null;
-        $scope.tableData = {};
         var graphData = [];
         var table = $('#table').get(0);
 
@@ -18,8 +17,6 @@ angular.module('ngApp')
             $scope.results = new ResultsClass(jsonData);
             $scope.$apply();
 
-            var row = table.insertRow(-1);
-            var x = 0;
             for (var color in $scope.results.colors) {
                 var ranking = 0;
                 for (var i = 0; i < $scope.results.colors[color].length; i++) {
@@ -28,8 +25,17 @@ angular.module('ngApp')
                 }
 
                 ranking /= 5;
-                $scope.tableData[color] = new RatingClass(color, (color.toLowerCase()).replace(/\s/g,"_"), ranking);
                 graphData.push([color, ranking]);
+            }
+
+            var tableData = graphData;
+            tableData.sort(function(a, b) {return b[1] - a[1]});
+
+            var row = table.insertRow(-1);
+            var x = 0;
+            for (var index in tableData) {
+                var color = tableData[index][0];
+                var ranking = tableData[index][1];
 
                 if (x == 4) {
                     var cell1 = row.insertCell(4);
