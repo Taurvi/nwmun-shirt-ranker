@@ -31,17 +31,21 @@ angular.module('ngApp')
                 $scope.tableData[color] = new RatingClass(color, (color.toLowerCase()).replace(/\s/g,"_"), ranking);
                 graphData.push([color, ranking]);
 
-                if (x == 2) {
-                    var cell1 = row.insertCell(2);
+                if (x == 4) {
+                    var cell1 = row.insertCell(4);
                     row = table.insertRow(-1);
-                } else if (x==1) {
+                } else if (x==3) {
+                    var cell1 = row.insertCell(3);
+                } else if (x==2) {
+                    var cell1 = row.insertCell(2);
+                } else if (x == 1) {
                     var cell1 = row.insertCell(1);
-                } else if (x==0) {
+                } else if (x == 0) {
                     var cell1 = row.insertCell(0);
                 }
 
                 cell1.innerHTML = color + " <b>" + ranking + "</b><br><img src='img/shirts/" + (color.toLowerCase()).replace(/\s/g,"_") + ".jpg'><br><br>";
-                if (x == 2) {
+                if (x == 4) {
                     x = 0;
                 } else {
                     x++;
