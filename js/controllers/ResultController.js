@@ -19,12 +19,15 @@ angular.module('ngApp')
 
             for (var color in $scope.results.colors) {
                 var ranking = 0;
+                var count = 0;
                 for (var i = 0; i < $scope.results.colors[color].length; i++) {
                     var rank =  $scope.results.colors[color][i];
-                    ranking += parseInt(rank);
+                    if (rank != -1) {
+                        ++count;
+                        ranking += parseInt(rank);
                 }
 
-                ranking /= 5;
+                ranking /= count;
                 graphData.push([color, ranking]);
             }
 
