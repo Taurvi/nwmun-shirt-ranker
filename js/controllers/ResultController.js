@@ -25,6 +25,7 @@ angular.module('ngApp')
                     if (rank != -1) {
                         ++count;
                         ranking += parseInt(rank);
+                    }
                 }
 
                 ranking /= count;
