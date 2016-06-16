@@ -24,11 +24,11 @@ angular.module('ngApp')
                     var rank =  $scope.results.colors[color][i];
                     if (rank != -1) {
                         ++count;
-                        ranking += parseInt(rank);
+                        ranking += parseFloat(rank);
                     }
                 }
 
-                ranking /= count;
+                ranking = Math.round((ranking/count) * 100) / 100;
                 graphData.push([color, ranking]);
             }
 
