@@ -14,11 +14,12 @@ header {
     height: 364px;
 }
 
-table {
-    text-align: center;
-    width: 100%;
+.img-responsive {
+    margin: 0 auto;
 }
 
-table img {
-    height: 250px;
+@media (min-width: 1200px) {
+    .col-lg-2 {
+        width: 20%;
+    }
 }
