@@ -9,7 +9,21 @@ angular.module('ngApp')
         $scope.rawResults = null;
         $scope.results = null;
         var graphData = [];
-        var table = $('#table').get(0);
+        var table = $('#table');
+
+        $(window).resize(function() {
+            if(this.resizeTO) clearTimeout(this.resizeTO);
+            this.resizeTO = setTimeout(function() {
+                $(this).trigger('resizeEnd');
+            }, 100);
+        });
+
+        //redraw graph when window resize is completed
+        $(window).on('resizeEnd', function() {
+            if (graphData.length != 0) {
+                drawChart();
+            }
+        });
 
         socket.on('returnData', function(data) {
             var jsonData = JSON.parse(data);
@@ -35,31 +49,17 @@ angular.module('ngApp')
             var tableData = graphData;
             tableData.sort(function(a, b) {return b[1] - a[1]});
 
-            var row = table.insertRow(-1);
-            var x = 0;
+            var row =  $("<div class='row'>");
+            table.append(row);
+
             for (var index in tableData) {
                 var color = tableData[index][0];
                 var ranking = tableData[index][1];
 
-                if (x == 4) {
-                    var cell1 = row.insertCell(4);
-                    row = table.insertRow(-1);
-                } else if (x==3) {
-                    var cell1 = row.insertCell(3);
-                } else if (x==2) {
-                    var cell1 = row.insertCell(2);
-                } else if (x == 1) {
-                    var cell1 = row.insertCell(1);
-                } else if (x == 0) {
-                    var cell1 = row.insertCell(0);
-                }
-
-                cell1.innerHTML = color + " <b>" + ranking + "</b><br><img src='img/shirts/" + (color.toLowerCase()).replace(/\s/g,"_") + ".jpg'><br><br>";
-                if (x == 4) {
-                    x = 0;
-                } else {
-                    x++;
-                }
+                var col = $("<div class='col-xs-6 col-sm-6 col-md-3 col-lg-3 text-center' style='text-align:center'>");
+                row.append(col);
+                col.html(color + " <b>" + ranking + "</b><br>" +
+                    "<img class='img-responsive' src='img/shirts/" + (color.toLowerCase()).replace(/\s/g,"_") + ".jpg'><br><br>");
             }
 
             graphData.sort(function(a, b) {return a[1] - b[1]});
